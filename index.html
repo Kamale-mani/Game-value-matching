@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Matching Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 160px;
+            background-image: url(view-3d-dice-with-abstract-scenery.jpg);
+            background-position: ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Value Matching Game</h1>
+    <p>Enter a number (1-5):</p>
+    <input type="number" id="playerValue" min="1" max="5">
+    <button id="submitBtn">Submit</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const playerValue = parseInt(document.getElementById('playerValue').value);
+            const computerValue = Math.floor(Math.random() * 5) + 1; // Random value between 1 and 5
+
+            if (playerValue < 1 || playerValue > 5 || isNaN(playerValue)) {
+                document.getElementById('result').innerText = "Please enter a valid number between 1 and 5.";
+                return;
+            }
+
+            if (playerValue === computerValue) {
+                alert(document.getElementById('result').innerText = `You entered: ${playerValue}. Computer also chose: ${computerValue}.You Lost Your Game ,Try again! Computer wins!`);
+            } else {
+                alert(document.getElementById('result').innerText = `You entered: ${playerValue}. Computer chose: ${computerValue}. you win Its Great!`);
+            }
+        });
+    </script>
+
+</body>
+</html>
